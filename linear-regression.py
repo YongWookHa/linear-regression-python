@@ -1,18 +1,50 @@
-import pandas as pd
-import numpy
+import numpy as np
 import matplotlib.pyplot as plt
 
+# hyper parameters
+epoch = 1000 # how many times to repeat
+lr = 0.005 # learning rate
+
 #read data
-dataframe = pd.read_fwf('brain_body.txt')
-x_values = dataframe[['Brain']]
-y_values = dataframe[['Body']]
+data = np.genfromtxt("fire_and_theft.txt", names=('fire','theft'), dtype=np.float64, skip_header=1)
 
-#train model on data
-#body_reg = linear_model.LinearRegression()
-#body_reg.fit(x_values, y_values)
-#to write
+m = len(data) # number of data
+k = len(data[0]) - 1 # number of attributes on x
 
-#visualize results
+x_values = [list(x)[:-1] for x in data]
+y_values = [[x[-1]] for x in data]
+
+# hypothesis = w1*x1 + w2*x2 + ... + wk*xk + b
+w = np.random.rand(1, k)
+b = np.random.random()
+
+cost_log = []
+for _ in range(epoch):
+	pred = np.matmul(x_values, w) + b
+	cost =  1/(2*m) * np.sum(np.square(np.subtract(pred, y_values)))
+	# cost = (h-y_values)**2.mean()/2
+	cost_log.append(cost)
+
+	w_gradient = 1/m * np.sum(np.multiply(np.subtract(pred, y_values), x_values))
+	b_gradient = 1/m * np.sum(np.subtract(pred, y_values))
+	
+	# update
+	w -= lr * w_gradient
+	b -= 2 * lr * b_gradient
+
+result = np.matmul(x_values, w) + b
+
+f1 = plt.figure(1)
+plt.title('graph')
 plt.scatter(x_values, y_values)
-plt.plot(x_values, body_reg.predict(x_values))
-plt.show()
+plt.plot(x_values, result, color='green')
+plt.xticks(())
+plt.yticks(())
+f1.show()
+
+f2 = plt.figure(2)
+plt.title('cost')
+plt.plot(range(epoch), cost_log)
+f2.show()
+
+input()
