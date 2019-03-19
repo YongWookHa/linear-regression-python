@@ -4,9 +4,8 @@ This is a python implementation of [Linear Regression](http://www.statisticssolu
 
 ## Dependencies
 
-To use the `demo.py` which uses `sklearn`, you need to install it first. And `linear-regression.py` uses libraries for data-reading(`pandas`), data-processing(`numpy`) and visualizing(`matplotlib`). So you need to install three dependencies below.
+To use the `demo.py` which uses `sklearn`, you need to install it first. And `linear-regression.py` uses libraries for data-processing(`numpy`) and visualizing(`matplotlib`). So you need to install three dependencies below.
 
-* pandas
 * numpy
 * scikit-learn
 * matplotlib
@@ -17,8 +16,16 @@ in terminal to install the necessary dependencies. Here is a link to [pip](https
 
 ## Usage
 
+In `fire_and_theft.txt`, you can find two columns of float data that indicate fire and theft occurrence in Chicago.
+
+We are going to find out the relationship between fire and theft occurrence. Specifically, we will get a function of `y = w*x + b` which defines the relationship.
+
+I tried to make the model be able to be applied even if there are multiple `x`s.
+
 Type `python demo.py` into terminal and you'll see the scatter plot and line of best fit appear.
 
 And you can also type `python linear-regression.py` without using `sklearn` libraray. But you will see the same result of `demo.py`.
+
+If you are trying without display, you can run `without_display.py`. It will create image files of `graph.png` and `cost.png` so that you can check to result later.
 
 Enjoy the codes.
