@@ -1,5 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import sys 
+
+inp = sys.argv[1]
 
 # hyper parameters
 epoch = 1000 # how many times to repeat
@@ -7,7 +10,7 @@ lr = 0.001 # learning rate
 train_data_ratio = 0.8 # train data 
 
 #read data
-data = np.genfromtxt("pm2.5_normalized.txt", dtype=np.float64, skip_header=1)
+data = np.genfromtxt(inp, dtype=np.float64, skip_header=1)
 
 data_pivot = int(len(data)*train_data_ratio)
 train_data = data[:data_pivot]
