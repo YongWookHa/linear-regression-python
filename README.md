@@ -18,11 +18,31 @@ You can just run `pip install -r requirements.txt` in terminal to install the ne
 
 Type `python demo.py` into terminal and you'll see the scattered data and best fit line. `demo.py` uses `sklearn` library for learning. 
 
-If you want learn how the linear regression works, you'd better read the `linear-regression.py` which implement the model with `numpy`. Type `python linear-regression.py data_name.txt` into terminal.
+If you want learn how the linear regression works, you'd better read the `linear-regression.py` which implement the model with `numpy`. There are three hyper parameters.
 
-### for single attribute
+> epoch : The number times that the learning algorithm will work through the entire training dataset.
+> learning rate : How much the weights would be updated.
+> train data ratio : How much to use as learning data. The rest of it would be used for validating. 
+
+I set default values for the hyper parameters, but I recommend you to edit them and observe the changes.
+
+Because of `train data ratio`, there could be a little difference between `demo.py` and `linear-regression.py`.
+
+Type `python linear-regression.py data_name.txt` into terminal.
+
+#### for single attribute
 
 In `fire_and_theft.txt`, you can find two columns of float data that indicate fire and theft occurrence in Chicago.
+
+With `demo.py` and `fire_and_theft.txt`, you will get a plot below.
+
+![](https://github.com/YongWookHa/linear-regression-python/blob/master/images/demo_graph.png?raw=true)
+
+With `linear-regression.py` and `fire_and_theft.txt`, you will get plots below.
+
+![](https://github.com/YongWookHa/linear-regression-python/blob/master/images/linear-regression_graph.png?raw=true)
+
+![](https://github.com/YongWookHa/linear-regression-python/blob/master/images/linear-regression_cost.png?raw=true)
 
 We are going to find out the relationship between fire and theft occurrence. Specifically, we will get a function of `y = w*x + b` which defines the relationship. In this case, you will get a single value of `w` and `b`.
 
@@ -31,7 +51,7 @@ We are going to find out the relationship between fire and theft occurrence. Spe
 
 If you are using single attribute input, it will make a graph image of scattered data and result function.
 
-### for multiple attribute
+#### for multiple attribute
 
 I tried to make the model be able to be applied even if there are multiple attributes.
 
@@ -52,7 +72,7 @@ When you test `pm2.5.text` with linear regression, you will find that it's reall
 
 `pm2.5_normalized.txt` is literally normalized data. You will get a better result with this data.
 
-### without display
+#### without display
 
 If you are trying without display, you can run `without_display.py`. It will create image files of `graph.png` and `cost.png` so that you can check to result later.
 
