@@ -20,8 +20,8 @@ Type `python demo.py` into terminal and you'll see the scattered data and best f
 
 If you want learn how the linear regression works, you'd better read the `linear-regression.py` which implement the model with `numpy`. There are three hyper parameters.
 
-> epoch : The number times that the learning algorithm will work through the entire training dataset.
-> learning rate : How much the weights would be updated.
+> epoch : The number times that the learning algorithm will work through the entire training dataset.<br/>
+> learning rate : How much the weights would be updated.<br/>
 > train data ratio : How much to use as learning data. The rest of it would be used for validating. 
 
 I set default values for the hyper parameters, but I recommend you to edit them and observe the changes.
@@ -46,7 +46,7 @@ With `linear-regression.py` and `fire_and_theft.txt`, you will get plots below.
 
 We are going to find out the relationship between fire and theft occurrence. Specifically, we will get a function of `y = w*x + b` which defines the relationship. In this case, you will get a single value of `w` and `b`.
 
-> `w` stands for weight
+> `w` stands for weight<br/>
 > `b` stands for bias
 
 If you are using single attribute input, it will make a graph image of scattered data and result function.
@@ -57,12 +57,13 @@ I tried to make the model be able to be applied even if there are multiple attri
 
 In `pm2.5.txt`, you can find several columns. Attribute information is below. 
 
-> month, day, hour is what it is.
-> DEWP : Dew Point
-> TEMP : Temperature
-> PRES : Pressure
-> lws Cumulated wind speed
-> lr Cumulated hours of rain
+> month, day, hour is what it is.<br/>
+> DEWP : Dew Point<br/>
+> TEMP : Temperature<br/>
+> PRES : Pressure<br/>
+> lws : Cumulated wind speed<br/>
+> lr : Cumulated hours of rain
+
 
 We will say the number of attributes as `k`. With `pm2.5.txt`, `k` will be 8. Then, we'll try to figure out the formular of `y = w1*x1 + w2*x2 + w3*x3 + w4*x4 + w5*x5 + w6*x6 + w7*x7 + w8*x8 + b`.
 
