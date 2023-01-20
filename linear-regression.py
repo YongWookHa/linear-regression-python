@@ -28,7 +28,7 @@ y_test = [x[-1:] for x in test_data]
 # hypothesis = w1*x1 + w2*x2 + ... + wk*xk + b
 w = np.random.rand(k, 1)
 b = np.random.random()
-
+# cost something
 cost_log = []
 for i in range(epoch):
 	pred = np.matmul(x_train, w) + b
